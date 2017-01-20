@@ -1,17 +1,39 @@
 package org.usfirst.frc.team2977.robot;
 
+import org.usfirst.frc.team2977.robot.commands.ClimbTime;
+import org.usfirst.frc.team2977.robot.commands.ClimberStop;
+import org.usfirst.frc.team2977.robot.commands.ElevateNoMore;
+import org.usfirst.frc.team2977.robot.commands.Elevater;
+import org.usfirst.frc.team2977.robot.commands.InneyTakey;
+import org.usfirst.frc.team2977.robot.commands.InneyTakeyStoppy;
+import org.usfirst.frc.team2977.robot.commands.Shoot;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
-import org.usfirst.frc.team2977.robot.commands.ExampleCommand;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	
+	//Joystick
 	public Joystick stick = new Joystick(1);
 	
+	//Buttons
+	Button A = new JoystickButton(stick, 1);
+	Button B = new JoystickButton(stick, 2);
+	Button X = new JoystickButton(stick, 3);
+	Button Y = new JoystickButton(stick, 4);
+	Button LButton = new JoystickButton(stick, 5);
+	Button RButton = new JoystickButton(stick, 6);
+	Button Back = new JoystickButton(stick, 7);
+	Button Start = new JoystickButton(stick, 8);
+	Button L3 = new JoystickButton(stick, 9);
+	Button R3 = new JoystickButton(stick, 10);
+	
+	//The Buttons That Operate on Axes
+	//And Joysticks
 	public double getLeftX() {
 		return stick.getRawAxis(0);
 	}
@@ -20,12 +42,41 @@ public class OI {
 		return stick.getRawAxis(1);
 	}
 	
+	public double getLeftTrigger() {
+		return stick.getRawAxis(2);
+	}
+	
+	public double getRightTrigger() {
+		return stick.getRawAxis(3);
+	}
+	
 	public double getRightX() {
 		return stick.getRawAxis(4);
 	}
 	
 	public double getRightY() {
 		return stick.getRawAxis(5);
+	}
+	
+	//Button Command Assignments
+	public void RightTrigger() {
+		if (stick.getRawAxis(5) >=.15 && stick.getRawAxis(5) <= 1);
+			new Shoot();
+	}
+	
+	public void Y() {
+		Y.whenPressed(new InneyTakey());
+		Y.whenReleased(new InneyTakeyStoppy());
+	}
+	
+	public void A() {
+		A.whenPressed(new ClimbTime());
+		A.whenReleased(new ClimberStop());
+	}
+	
+	public void B() {
+		B.whenPressed(new Elevater());
+		B.whenReleased(new ElevateNoMore());
 	}
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.
@@ -54,4 +105,3 @@ public class OI {
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
 }
-

@@ -13,7 +13,17 @@ public class RobotMap {
 	public static int bR = 3;
 	public static int bL = 4;
 	
+	//Shooter
+	public static int shootie = 5;
 	
+	//Intake
+	public static int intake = 6;
+	
+	//Elevator
+	public static int elevatorPort = 7;
+	
+	//Climber
+	public static int climberPort = 8;
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.
     // public static int leftMotor = 1;
