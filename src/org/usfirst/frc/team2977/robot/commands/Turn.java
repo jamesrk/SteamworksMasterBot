@@ -7,10 +7,11 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class InneyTakeyStoppy extends Command {
+public class Turn extends Command {
 
-    public InneyTakeyStoppy() {
-    	requires(Robot.intake);
+    public Turn(double timeout) {
+    	requires(Robot.chassis);
+    	setTimeout(timeout);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -20,11 +21,13 @@ public class InneyTakeyStoppy extends Command {
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {}
+    protected void execute() {
+    	Robot.chassis.TurnRight(.5);
+    }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true

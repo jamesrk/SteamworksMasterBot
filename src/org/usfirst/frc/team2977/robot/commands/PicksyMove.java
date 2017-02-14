@@ -7,10 +7,10 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class InneyTakeyStoppy extends Command {
+public class PicksyMove extends Command {
 
-    public InneyTakeyStoppy() {
-    	requires(Robot.intake);
+    public PicksyMove() {
+    	requires(Robot.picksy);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -20,7 +20,9 @@ public class InneyTakeyStoppy extends Command {
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {}
+    protected void execute() {
+    	Robot.picksy.GodzillaWalking();
+    }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

@@ -6,6 +6,7 @@ import org.usfirst.frc.team2977.robot.commands.ElevateNoMore;
 import org.usfirst.frc.team2977.robot.commands.Elevater;
 import org.usfirst.frc.team2977.robot.commands.InneyTakey;
 import org.usfirst.frc.team2977.robot.commands.InneyTakeyStoppy;
+import org.usfirst.frc.team2977.robot.commands.PicksyMove;
 import org.usfirst.frc.team2977.robot.commands.Shoot;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -25,8 +26,8 @@ public class OI {
 	Button B = new JoystickButton(stick, 2);
 	Button X = new JoystickButton(stick, 3);
 	Button Y = new JoystickButton(stick, 4);
-	Button LButton = new JoystickButton(stick, 5);
-	Button RButton = new JoystickButton(stick, 6);
+	Button L2 = new JoystickButton(stick, 5);
+	Button R2 = new JoystickButton(stick, 6);
 	Button Back = new JoystickButton(stick, 7);
 	Button Start = new JoystickButton(stick, 8);
 	Button L3 = new JoystickButton(stick, 9);
@@ -44,7 +45,7 @@ public class OI {
 	
 	public double getLeftTrigger() {
 		return stick.getRawAxis(2);
-	}
+	}    
 	
 	public double getRightTrigger() {
 		return stick.getRawAxis(3);
@@ -77,6 +78,10 @@ public class OI {
 	public void B() {
 		B.whenPressed(new Elevater());
 		B.whenReleased(new ElevateNoMore());
+	}
+	
+	public void L2() {
+		L2.whileHeld(new PicksyMove());
 	}
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.

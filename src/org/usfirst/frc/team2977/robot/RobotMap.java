@@ -8,10 +8,10 @@ package org.usfirst.frc.team2977.robot;
 public class RobotMap {
 	
 	//Motors
-	public static int fR = 1;
-	public static int fL = 2;
-	public static int bR = 3;
-	public static int bL = 4;
+	public static int fR = 0;
+	public static int fL = 1;
+	public static int bR = 2;
+	public static int bL = 3;
 	
 	//Shooter
 	public static int shootie = 5;

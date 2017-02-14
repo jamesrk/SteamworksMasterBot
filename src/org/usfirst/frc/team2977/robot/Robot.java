@@ -8,11 +8,13 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team2977.robot.commands.DriveWithJoysticks;
+import org.usfirst.frc.team2977.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2977.robot.subsystems.Chassis;
 import org.usfirst.frc.team2977.robot.subsystems.Climber;
 import org.usfirst.frc.team2977.robot.subsystems.Elevator;
+import org.usfirst.frc.team2977.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2977.robot.subsystems.Intake;
+import org.usfirst.frc.team2977.robot.subsystems.Picksy;
 import org.usfirst.frc.team2977.robot.subsystems.Shooter;
 
 /**
@@ -24,11 +26,13 @@ import org.usfirst.frc.team2977.robot.subsystems.Shooter;
  */
 public class Robot extends IterativeRobot {
 
+	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static final Chassis chassis = new Chassis();
 	public static final Intake intake = new Intake();
 	public static final Climber climber = new Climber();
 	public static final Shooter shooter = new Shooter();
 	public static final Elevator elevator = new Elevator();
+	public static final Picksy picksy = new Picksy();
 	public static OI oi;
 
 	Command autonomousCommand;
@@ -41,8 +45,8 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser.addDefault("Default Auto", new DriveWithJoysticks());
-		// chooser.addObject("My Auto", new MyAutoCommand());
+		chooser.addDefault("Default Auto", new ExampleCommand());
+		//chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 	}
 
